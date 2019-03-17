@@ -78,7 +78,7 @@ var DefaultOptions = []Option{
 	UseFieldNames(),
 }
 
-// The Namespaces option configures the code generation process
+// option configures the code generation process
 // to only generate code for types declared in the configured target
 // namespaces.
 func Namespaces(xmlns ...string) Option {
@@ -89,7 +89,7 @@ func Namespaces(xmlns ...string) Option {
 	}
 }
 
-// The Option method is used to configure an existing configuration.
+// method is used to configure an existing configuration.
 // The return value of the Option method can be used to revert the
 // final option to its previous setting.
 func (cfg *Config) Option(opts ...Option) (previous Option) {
@@ -291,7 +291,7 @@ func replaceAllNamesRegex(reg *regexp.Regexp, repl string) Option {
 	}
 }
 
-// The UseFieldNames Option names anonymous types based on the name
+// Option names anonymous types based on the name
 // of the element or attribute they describe.
 func UseFieldNames() Option {
 	return ProcessTypes(useFieldNames)
@@ -373,7 +373,7 @@ func HandleSOAPArrayType() Option {
 	}
 }
 
-// SOAP 1.1 defines an Array as
+// SOAPArrayAsSlice 1.1 defines an Array as
 //
 // 	<xs:complexType name="Array">
 // 	  <xs:any maxOccurs="unbounded" />

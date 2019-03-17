@@ -218,7 +218,7 @@ type NDFDgenRequest struct {
 	WeatherParameters WeatherParameters
 }
 
-// Returns National Weather Service digital weather forecast data
+// NDFDgen returns National Weather Service digital weather forecast data
 func (c *Client) NDFDgen(ctx context.Context, v NDFDgenRequest) (string, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl NDFDgen"`
@@ -258,7 +258,7 @@ type NDFDgenByDayRequest struct {
 	Format    Format
 }
 
-// Returns National Weather Service digital weather forecast data summarized over either 24- or 12-hourly periods
+// NDFDgenByDay returns National Weather Service digital weather forecast data summarized over either 24- or 12-hourly periods
 func (c *Client) NDFDgenByDay(ctx context.Context, v NDFDgenByDayRequest) (string, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl NDFDgenByDay"`
@@ -296,7 +296,7 @@ type NDFDgenLatLonListRequest struct {
 	WeatherParameters WeatherParameters
 }
 
-// Returns National Weather Service digital weather forecast data
+// NDFDgenLatLonList returns National Weather Service digital weather forecast data
 func (c *Client) NDFDgenLatLonList(ctx context.Context, v NDFDgenLatLonListRequest) (string, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl NDFDgenLatLonList"`
@@ -333,7 +333,7 @@ type NDFDgenByDayLatLonListRequest struct {
 	Format     Format
 }
 
-// Returns National Weather Service digital weather forecast data summarized over either 24- or 12-hourly periods
+// NDFDgenByDayLatLonList returns National Weather Service digital weather forecast data summarized over either 24- or 12-hourly periods
 func (c *Client) NDFDgenByDayLatLonList(ctx context.Context, v NDFDgenByDayLatLonListRequest) (string, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl NDFDgenByDayLatLonList"`
@@ -367,7 +367,7 @@ type GmlLatLonListRequest struct {
 	WeatherParameters WeatherParameters
 }
 
-// Returns National Weather Service digital weather forecast data encoded in GML for a single time
+// GmlLatLonList returns National Weather Service digital weather forecast data encoded in GML for a single time
 func (c *Client) GmlLatLonList(ctx context.Context, v GmlLatLonListRequest) (string, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl GmlLatLonList"`
@@ -401,7 +401,7 @@ type GmlTimeSeriesRequest struct {
 	PropertyName string
 }
 
-// Returns National Weather Service digital weather forecast data encoded in GML for a time period
+// GmlTimeSeries returns National Weather Service digital weather forecast data encoded in GML for a time period
 func (c *Client) GmlTimeSeries(ctx context.Context, v GmlTimeSeriesRequest) (string, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl GmlTimeSeries"`
@@ -438,7 +438,7 @@ type LatLonListSubgridRequest struct {
 	Resolution          float64
 }
 
-// Returns a list of latitude and longitude pairs in a rectangular subgrid defined by the lower left and upper right points
+// LatLonListSubgrid returns a list of latitude and longitude pairs in a rectangular subgrid defined by the lower left and upper right points
 func (c *Client) LatLonListSubgrid(ctx context.Context, v LatLonListSubgridRequest) (ListLatLon, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl LatLonListSubgrid"`
@@ -472,7 +472,7 @@ type LatLonListLineRequest struct {
 	EndPoint2Lon float64
 }
 
-// Returns a list of latitude and longitude pairs along a line defined by the latitude and longitude of the 2 endpoints
+// LatLonListLine returns a list of latitude and longitude pairs along a line defined by the latitude and longitude of the 2 endpoints
 func (c *Client) LatLonListLine(ctx context.Context, v LatLonListLineRequest) (ListLatLon, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl LatLonListLine"`
@@ -497,7 +497,7 @@ func (c *Client) LatLonListLine(ctx context.Context, v LatLonListLineRequest) (L
 	return ListLatLon(output.Args.ListLatLonOut), err
 }
 
-// Returns a list of latitude and longitude pairs with each pair corresponding to an input zip code.
+// LatLonListZipCode returns a list of latitude and longitude pairs with each pair corresponding to an input zip code.
 func (c *Client) LatLonListZipCode(ctx context.Context, zipCodeList ZipCodeList) (ListLatLon, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl LatLonListZipCode"`
@@ -524,7 +524,7 @@ type LatLonListSquareRequest struct {
 	Resolution     float64
 }
 
-// Returns a list of latitude and longitude pairs in a rectangle defined by a central point and distance from that point in the latitudinal and longitudinal directions
+// LatLonListSquare returns a list of latitude and longitude pairs in a rectangle defined by a central point and distance from that point in the latitudinal and longitudinal directions
 func (c *Client) LatLonListSquare(ctx context.Context, v LatLonListSquareRequest) (ListLatLon, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl LatLonListSquare"`
@@ -551,7 +551,7 @@ func (c *Client) LatLonListSquare(ctx context.Context, v LatLonListSquareRequest
 	return ListLatLon(output.Args.ListLatLonOut), err
 }
 
-// Returns four latitude and longitude pairs for corners of an NDFD grid and the minimum resolution that will return the entire grid
+// CornerPoints returns four latitude and longitude pairs for corners of an NDFD grid and the minimum resolution that will return the entire grid
 func (c *Client) CornerPoints(ctx context.Context, sector Sector) (ListLatLon, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl CornerPoints"`
@@ -570,7 +570,7 @@ func (c *Client) CornerPoints(ctx context.Context, sector Sector) (ListLatLon, e
 	return ListLatLon(output.Args.ListLatLonOut), err
 }
 
-// Returns a list of latitude and longitude pairs paired with the city names they correspond to
+// LatLonListCityNames returns a list of latitude and longitude pairs paired with the city names they correspond to
 func (c *Client) LatLonListCityNames(ctx context.Context, displayLevel DisplayLevel) (ListCityNames, error) {
 	var input struct {
 		XMLName struct{} `xml:"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl LatLonListCityNames"`

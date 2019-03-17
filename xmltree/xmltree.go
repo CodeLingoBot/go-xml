@@ -67,7 +67,7 @@ func (el *Element) Attr(space, local string) string {
 	return ""
 }
 
-// The JoinScope method joins two Scopes together. When resolving
+// method joins two Scopes together. When resolving
 // prefixes using the returned scope, the prefix list in the argument
 // Scope is searched before that of the receiver Scope.
 func (outer *Scope) JoinScope(inner *Scope) *Scope {
@@ -100,7 +100,7 @@ func (scope *Scope) Resolve(qname string) xml.Name {
 	return name
 }
 
-// The ResolveNS method is like Resolve, but returns false for its second
+// method is like Resolve, but returns false for its second
 // return value if a namespace prefix cannot be resolved.
 func (scope *Scope) ResolveNS(qname string) (xml.Name, bool) {
 	var prefix, local string

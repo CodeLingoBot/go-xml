@@ -70,7 +70,7 @@ var DefaultOptions = []Option{
 	OutputThreshold(2),
 }
 
-// The OnlyPorts option defines a whitelist of WSDL ports to generate
+// option defines a whitelist of WSDL ports to generate
 // code for. Any other ports will not have types or methods present in
 // the generated output.
 func OnlyPorts(ports ...string) Option {

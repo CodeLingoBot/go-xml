@@ -70,7 +70,7 @@ func (cfg *Config) GenAST(files ...string) (*ast.File, error) {
 	return code.GenAST()
 }
 
-// The GenSource method converts the AST returned by GenAST to formatted
+// method converts the AST returned by GenAST to formatted
 // Go source code.
 func (cfg *Config) GenSource(files ...string) ([]byte, error) {
 	file, err := cfg.GenAST(files...)
